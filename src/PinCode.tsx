@@ -432,13 +432,15 @@ class PinCode extends React.PureComponent<IProps, IState> {
                         <View
                           style={[{
                             left: x,
-                            height: height,
-                            width: width,
+                            height: !this.state.isPincodeVisible ? height : height * 2.5,
+                            width: !this.state.isPincodeVisible ? width : width * 2.5,
                             opacity: opacity,
-                            borderRadius: borderRadius,
+                            borderRadius: !this.state.isPincodeVisible ? borderRadius : borderRadius * 2.5,
                             marginLeft: marginLeft,
                             marginRight: marginRight,
-                            backgroundColor: color
+                            borderColor: !this.state.isPincodeVisible ? color : "#C6C9DD",
+                            borderWidth: 2,
+                            backgroundColor: !this.state.isPincodeVisible ? color : "transparent"
                           }, this.props.stylePinCodeCircle]}
                         />
                       )) || (
@@ -447,7 +449,7 @@ class PinCode extends React.PureComponent<IProps, IState> {
                             left: x,
                             opacity: opacity,
                             marginLeft: marginLeft,
-                            marginRight: marginRight
+                            marginRight: marginRight,
                           }}>
                           <Text
                             style={{
