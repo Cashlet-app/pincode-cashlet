@@ -136,7 +136,7 @@ class PinCode extends React.PureComponent<IProps, IState> {
     }
     this._circleSizeEmpty = this.props.styleCircleSizeEmpty || 4
     this._circleSizeFull =
-      this.props.styleCircleSizeFull || (this.props.pinCodeVisible ? 6 : 8)
+      this.props.styleCircleSizeFull || (this.props.pinCodeVisible ? 4 : 4)
   }
 
   componentDidMount() {
@@ -353,7 +353,7 @@ class PinCode extends React.PureComponent<IProps, IState> {
     } = this.state
     const colorPwdErr = this.props.colorPasswordError || colors.alert
     const colorPwd = this.props.colorPassword || colors.turquoise
-    const colorPwdEmp = this.props.colorPasswordEmpty || colorPwd
+    const colorPwdEmp = this.props.colorPasswordEmpty || "#C6C9DD"
     return (
       <View
         style={
@@ -432,10 +432,10 @@ class PinCode extends React.PureComponent<IProps, IState> {
                         <View
                           style={[{
                             left: x,
-                            height: !this.state.isPincodeVisible ? height : height * 2.5,
-                            width: !this.state.isPincodeVisible ? width : width * 2.5,
+                            height: !this.state.isPincodeVisible ? height * 2.5 : height * 2.5,
+                            width: !this.state.isPincodeVisible ? width * 2.5 : width * 2.5,
                             opacity: opacity,
-                            borderRadius: !this.state.isPincodeVisible ? borderRadius : borderRadius * 2.5,
+                            borderRadius: !this.state.isPincodeVisible ? borderRadius * 2.5 : borderRadius * 2.5,
                             marginLeft: marginLeft,
                             marginRight: marginRight,
                             borderColor: !this.state.isPincodeVisible ? color : "#C6C9DD",
@@ -880,7 +880,7 @@ class PinCode extends React.PureComponent<IProps, IState> {
             )}
         </View>
         {this.props.isEnter ? (<View style={{ flex: 1 }}>
-          <TouchableOpacity onPress={() => this.props.changeAccount()} style={{ marginTop: 20 }}>
+          <TouchableOpacity onPress={() => this.props.changeAccount()} style={{ marginBottom: 20 }}>
             <Text style={{ color: colors.grey, fontSize: 14, textAlign: "center", fontFamily: 'Comfortaa' }}>Change account</Text>
           </TouchableOpacity>
         </View>) : null}

@@ -20,10 +20,10 @@ class ApplicationLocked extends React.PureComponent {
                         this.props.onClickButton();
                     }
                     else {
-                        throw 'Quit application';
+                        throw 'Quit';
                     }
                 }, style: styles.button },
-                React.createElement(react_native_1.Text, { style: styles.closeButtonText }, this.props.textButton)));
+                React.createElement(react_native_1.Text, { style: styles.closeButtonText }, "Quit")));
         };
         this.renderTimer = (minutes, seconds) => {
             return (React.createElement(react_native_1.View, { style: styles.viewTimer },
@@ -34,7 +34,7 @@ class ApplicationLocked extends React.PureComponent {
         };
         this.renderIcon = () => {
             return (React.createElement(react_native_1.View, { style: styles.viewIcon },
-                React.createElement(MaterialIcons_1.default, { name: 'lock', size: 24, color: "rgb(75,94,127)" })));
+                React.createElement(MaterialIcons_1.default, { name: 'lock-outline', size: 24, color: "rgb(75,94,127)" })));
         };
         this.renderErrorLocked = () => {
             const minutes = Math.floor(this.state.timeDiff / 1000 / 60);
@@ -122,10 +122,10 @@ const styles = react_native_1.StyleSheet.create({
     },
     text: {
         fontSize: grid_1.grid.unit,
-        color: "rgb(140,142,152)",
+        color: "#4B5E7F",
         lineHeight: grid_1.grid.unit * grid_1.grid.lineHeight,
         textAlign: 'center',
-        fontFamily: 'Comfortaa'
+        fontFamily: 'Comfortaa-light'
     },
     viewTextLock: {
         justifyContent: 'center',
@@ -135,16 +135,15 @@ const styles = react_native_1.StyleSheet.create({
         flex: 3
     },
     textTimer: {
-        fontFamily: 'Comfortaa',
+        fontFamily: 'Comfortaa-light',
         fontSize: 48,
-        color: colors_1.colors.base
+        color: "#4B5E7F"
     },
     title: {
         fontSize: 24,
         color: colors_1.colors.base,
         textAlign: "center",
-        opacity: grid_1.grid.mediumOpacity,
-        fontFamily: 'Comfortaa',
+        fontFamily: 'Comfortaa-light',
         marginBottom: 20
     },
     viewIcon: {
@@ -169,16 +168,18 @@ const styles = react_native_1.StyleSheet.create({
         marginTop: grid_1.grid.unit * 2
     },
     button: {
-        backgroundColor: "rgb(75,94,127)",
         borderRadius: grid_1.grid.border,
+        borderWidth: 2,
+        borderColor: "rgb(75,94,127)",
         paddingLeft: grid_1.grid.unit * 2,
         paddingRight: grid_1.grid.unit * 2,
         paddingBottom: grid_1.grid.unit,
         paddingTop: grid_1.grid.unit
     },
     closeButtonText: {
-        color: colors_1.colors.white,
         fontWeight: 'bold',
+        fontFamily: 'Comfortaa',
+        color: "#4B5E7F",
         fontSize: 14
     },
     borderViewRight: {

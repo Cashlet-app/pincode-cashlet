@@ -101,13 +101,13 @@ class ApplicationLocked extends React.PureComponent<IProps, IState> {
           if (this.props.onClickButton) {
             this.props.onClickButton()
           } else {
-            throw 'Quit application'
+            throw 'Quit'
           }
         }}
         style={styles.button}>
         <Text
           style={styles.closeButtonText}>
-          {this.props.textButton}
+          {"Quit"}
         </Text>
       </TouchableOpacity>
     )
@@ -141,7 +141,7 @@ class ApplicationLocked extends React.PureComponent<IProps, IState> {
       <View
         style={styles.viewIcon}>
         <Icon
-          name={'lock'}
+          name={'lock-outline'}
           size={24}
           color="rgb(75,94,127)"
         />
@@ -246,10 +246,10 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: grid.unit,
-    color: "rgb(140,142,152)",
+    color: "#4B5E7F",
     lineHeight: grid.unit * grid.lineHeight,
     textAlign: 'center',
-    fontFamily: 'Comfortaa'
+    fontFamily: 'Comfortaa-light'
   },
   viewTextLock: {
     justifyContent: 'center',
@@ -259,16 +259,15 @@ const styles = StyleSheet.create({
     flex: 3
   },
   textTimer: {
-    fontFamily: 'Comfortaa',
+    fontFamily: 'Comfortaa-light',
     fontSize: 48,
-    color: colors.base
+    color: "#4B5E7F"
   },
   title: {
     fontSize: 24,
     color: colors.base,
     textAlign: "center",
-    opacity: grid.mediumOpacity,
-    fontFamily: 'Comfortaa',
+    fontFamily: 'Comfortaa-light',
     marginBottom: 20
   },
   viewIcon: {
@@ -293,16 +292,18 @@ const styles = StyleSheet.create({
     marginTop: grid.unit * 2
   },
   button: {
-    backgroundColor: "rgb(75,94,127)",
     borderRadius: grid.border,
+    borderWidth: 2,
+    borderColor: "rgb(75,94,127)",
     paddingLeft: grid.unit * 2,
     paddingRight: grid.unit * 2,
     paddingBottom: grid.unit,
     paddingTop: grid.unit
   },
   closeButtonText: {
-    color: colors.white,
     fontWeight: 'bold',
+    fontFamily: 'Comfortaa',
+    color: "#4B5E7F",
     fontSize: 14
   },
   borderViewRight: {

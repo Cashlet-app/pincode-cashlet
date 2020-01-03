@@ -140,7 +140,7 @@ class PinCode extends React.PureComponent {
             const { password, moveData, showError, changeScreen, attemptFailed } = this.state;
             const colorPwdErr = this.props.colorPasswordError || colors_1.colors.alert;
             const colorPwd = this.props.colorPassword || colors_1.colors.turquoise;
-            const colorPwdEmp = this.props.colorPasswordEmpty || colorPwd;
+            const colorPwdEmp = this.props.colorPasswordEmpty || "#C6C9DD";
             return (React.createElement(react_native_1.View, { style: this.props.styleCircleHiddenPassword
                     ? this.props.styleCircleHiddenPassword
                     : styles.topViewCirclePassword }, _.range(this.props.passwordLength).map((val) => {
@@ -194,10 +194,10 @@ class PinCode extends React.PureComponent {
                     } }, ({ opacity, x, height, width, color, borderRadius, marginRight, marginLeft }) => (React.createElement(react_native_1.View, { style: styles.viewCircles }, ((!this.state.isPincodeVisible ||
                     (this.state.isPincodeVisible && !lengthSup)) && (React.createElement(react_native_1.View, { style: [{
                             left: x,
-                            height: !this.state.isPincodeVisible ? height : height * 2.5,
-                            width: !this.state.isPincodeVisible ? width : width * 2.5,
+                            height: !this.state.isPincodeVisible ? height * 2.5 : height * 2.5,
+                            width: !this.state.isPincodeVisible ? width * 2.5 : width * 2.5,
                             opacity: opacity,
-                            borderRadius: !this.state.isPincodeVisible ? borderRadius : borderRadius * 2.5,
+                            borderRadius: !this.state.isPincodeVisible ? borderRadius * 2.5 : borderRadius * 2.5,
                             marginLeft: marginLeft,
                             marginRight: marginRight,
                             borderColor: !this.state.isPincodeVisible ? color : "#C6C9DD",
@@ -295,7 +295,7 @@ class PinCode extends React.PureComponent {
         };
         this._circleSizeEmpty = this.props.styleCircleSizeEmpty || 4;
         this._circleSizeFull =
-            this.props.styleCircleSizeFull || (this.props.pinCodeVisible ? 6 : 8);
+            this.props.styleCircleSizeFull || (this.props.pinCodeVisible ? 4 : 4);
     }
     componentDidMount() {
         if (this.props.getCurrentLength)
@@ -505,7 +505,7 @@ class PinCode extends React.PureComponent {
                 } },
                 React.createElement(react_native_1.Text, { style: { color: saveIsReady ? colors_1.colors.white : colors_1.colors.dark, fontSize: 16, textAlign: "center", fontFamily: 'Comfortaa', } }, this.props.isReset ? 'Enter new passcode' : `${saveText}`)))),
             this.props.isEnter ? (React.createElement(react_native_1.View, { style: { flex: 1 } },
-                React.createElement(react_native_1.TouchableOpacity, { onPress: () => this.props.changeAccount(), style: { marginTop: 20 } },
+                React.createElement(react_native_1.TouchableOpacity, { onPress: () => this.props.changeAccount(), style: { marginBottom: 20 } },
                     React.createElement(react_native_1.Text, { style: { color: colors_1.colors.grey, fontSize: 14, textAlign: "center", fontFamily: 'Comfortaa' } }, "Change account")))) : null));
     }
 }

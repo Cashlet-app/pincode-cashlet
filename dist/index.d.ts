@@ -7,7 +7,7 @@ export declare type IProps = {
     changeAccount: () => any;
     isEnter: boolean;
     isReset: boolean;
-    isRegister: boolean;
+    isRegister?: boolean;
     bottomLeftComponent?: any;
     buttonComponentLockedPage?: any;
     buttonDeleteComponent?: any;
