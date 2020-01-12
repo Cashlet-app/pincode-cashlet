@@ -8,6 +8,7 @@ import { StyleProp, TextStyle, ViewStyle } from 'react-native';
 export declare type IProps = {
     isEnter?: boolean;
     isReset?: boolean;
+    isRegister?: boolean;
     resetPass: () => void;
     changeAccount: () => any;
     buttonDeleteComponent: any;

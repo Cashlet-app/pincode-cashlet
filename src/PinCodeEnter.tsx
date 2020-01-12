@@ -21,6 +21,7 @@ import TouchID from 'react-native-touch-id'
 export type IProps = {
   isEnter?: boolean
   isReset?: boolean
+  isRegister?: boolean
   resetPass: () => void
   changeAccount: () => any
   buttonDeleteComponent: any

@@ -1,5 +1,5 @@
 {
-  "name": "@haskkor/react-native-pincode",
+  "name": "pincode-cashlet",
   "version": "1.20.3",
   "description": "React native PIN code component",
   "main": "dist/index.js",
@@ -17,14 +17,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Haskkor/react-native-pincode.git"
+    "url": "git+https://github.com/TODOITLTD/pincode-cashlet.git"
   },
   "author": "Jeremy Farnault",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Haskkor/react-native-pincode/issues"
+    "url": "https://github.com/TODOITLTD/pincode-cashlet/issues"
   },
-  "homepage": "https://github.com/Haskkor/react-native-pincode#readme",
+  "homepage": "https://github.com/TODOITLTD/pincode-cashlet#readme",
   "devDependencies": {
     "@types/d3-ease": "^1.0.7",
     "@types/lodash": "^4.14.104",
