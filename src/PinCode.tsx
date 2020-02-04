@@ -589,7 +589,7 @@ class PinCode extends React.PureComponent<IProps, IState> {
 
   render() {
     const { password, showError, attemptFailed, changeScreen, isPincodeVisible, saveIsReady } = this.state
-    const saveText = this.props.isRegister ? 'Save passcode and sign in' : 'Save passcode'
+    const saveText = this.props.isRegister ? 'Create passcode' : 'Confirm passcode'
     return (
       <View
         style={
