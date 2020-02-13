@@ -500,10 +500,10 @@ class PinCode extends React.PureComponent {
                         } },
                         React.createElement(react_native_1.Image, { source: require('./design/fingerprint.png'), style: { height: 40, width: 40 } }))),
                 React.createElement(react_native_1.View, { style: styles.borderViewRight },
-                    React.createElement(react_native_1.View, { style: styles.borderBottom })))) : (React.createElement(react_native_1.TouchableOpacity, { style: [{ backgroundColor: saveIsReady ? colors_1.colors.turquoise : 'rgba(234,237,251, 0.8)' }, styles.saveButton], disabled: !saveIsReady, onPress: () => {
+                    React.createElement(react_native_1.View, { style: styles.borderBottom })))) : (React.createElement(React.Fragment, null, saveIsReady ? (React.createElement(react_native_1.TouchableOpacity, { style: [{ backgroundColor: saveIsReady ? colors_1.colors.turquoise : 'rgba(234,237,251, 0.8)' }, styles.saveButton], disabled: !saveIsReady, onPress: () => {
                     this.endProcess(this.state.currentPassword);
                 } },
-                React.createElement(react_native_1.Text, { style: { color: saveIsReady ? colors_1.colors.white : colors_1.colors.dark, fontSize: 16, textAlign: "center", fontFamily: 'Comfortaa', } }, this.props.isReset ? 'Enter new passcode' : `${saveText}`)))),
+                React.createElement(react_native_1.Text, { style: { color: saveIsReady ? colors_1.colors.white : colors_1.colors.dark, fontSize: 16, textAlign: "center", fontFamily: 'Comfortaa', } }, this.props.isReset ? 'Enter new passcode' : `${saveText}`))) : null))),
             this.props.isEnter ? (React.createElement(react_native_1.View, { style: { flex: 1 } },
                 React.createElement(react_native_1.TouchableOpacity, { onPress: () => this.props.changeAccount(), style: { marginBottom: 20 } },
                     React.createElement(react_native_1.Text, { style: { color: colors_1.colors.grey, fontSize: 14, textAlign: "center", fontFamily: 'Comfortaa' } }, "Change account")))) : null));
