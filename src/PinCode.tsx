@@ -866,17 +866,22 @@ class PinCode extends React.PureComponent<IProps, IState> {
             </View>
 
           ) : (
-              <TouchableOpacity
-                style={[{ backgroundColor: saveIsReady ? colors.turquoise : 'rgba(234,237,251, 0.8)' }, styles.saveButton]}
-                disabled={!saveIsReady}
-                onPress={() => {
-                  this.endProcess(this.state.currentPassword)
-                }}
-              >
-                <Text style={{ color: saveIsReady ? colors.white : colors.dark, fontSize: 16, textAlign: "center", fontFamily: 'Comfortaa', }}>
-                  {this.props.isReset ? 'Enter new passcode' : `${saveText}`}
-                </Text>
-              </TouchableOpacity>
+              <>
+                {saveIsReady ? (
+                  <TouchableOpacity
+                    style={[{ backgroundColor: saveIsReady ? colors.turquoise : 'rgba(234,237,251, 0.8)' }, styles.saveButton]}
+                    disabled={!saveIsReady}
+                    onPress={() => {
+                      this.endProcess(this.state.currentPassword)
+                    }}
+                  >
+                    <Text style={{ color: saveIsReady ? colors.white : colors.dark, fontSize: 16, textAlign: "center", fontFamily: 'Comfortaa', }}>
+                      {this.props.isReset ? 'Enter new passcode' : `${saveText}`}
+                    </Text>
+                  </TouchableOpacity>
+                ) : null}
+              </>
+
             )}
         </View>
         {this.props.isEnter ? (<View style={{ flex: 1 }}>
