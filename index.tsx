@@ -11,7 +11,8 @@ import { View, StyleSheet, StyleProp, ViewStyle, TextStyle } from "react-native"
 
 export type IProps = {
   resetPass: () => void
-  changeAccount: () => any,
+  isTouchable: boolean
+  changeAccount: () => any
   isEnter: boolean
   isReset: boolean
   isRegister?: boolean
@@ -252,6 +253,7 @@ class PINCode extends React.PureComponent<IProps, IState> {
           />}
         {status === PinStatus.enter &&
           <PinCodeEnter
+            isTouchable={this.props.isTouchable}
             resetPass={this.props.resetPass}
             changeAccount={this.props.changeAccount}
             buttonDeleteComponent={this.props.buttonDeleteComponent}

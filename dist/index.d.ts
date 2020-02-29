@@ -4,6 +4,7 @@ import * as React from "react";
 import { StyleProp, ViewStyle, TextStyle } from "react-native";
 export declare type IProps = {
     resetPass: () => void;
+    isTouchable: boolean;
     changeAccount: () => any;
     isEnter: boolean;
     isReset: boolean;

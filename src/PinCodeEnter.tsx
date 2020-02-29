@@ -261,7 +261,7 @@ class PinCodeEnter extends React.PureComponent<IProps, IState> {
             : styles.container
         }>
         <PinCode
-          isTouchable={this.props.isTouchable || true}
+          isTouchable={this.props.isTouchable}
           showTouchID={this.state.showTouchID}
           handleShowTouchID={this.handleShowTouchID}
           resetPass={this.props.resetPass}
