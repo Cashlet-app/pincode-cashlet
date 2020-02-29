@@ -486,7 +486,7 @@ class PinCode extends React.PureComponent {
                     justifyContent: 'center',
                     alignItems: "center",
                     flexDirection: "row"
-                } },
+                } }, this.props.isTouchable ? (React.createElement(React.Fragment, null,
                 React.createElement(react_native_1.View, { style: styles.borderViewLeft },
                     React.createElement(react_native_1.View, { style: styles.borderBottom })),
                 React.createElement(react_native_1.View, { style: { justifyContent: "center", alignItems: "stretch", width: thirdSize, flexDirection: "row" } },
@@ -500,7 +500,14 @@ class PinCode extends React.PureComponent {
                         } },
                         React.createElement(react_native_1.Image, { source: require('./design/fingerprint.png'), style: { height: 40, width: 40 } }))),
                 React.createElement(react_native_1.View, { style: styles.borderViewRight },
-                    React.createElement(react_native_1.View, { style: styles.borderBottom })))) : (React.createElement(React.Fragment, null, saveIsReady ? (React.createElement(react_native_1.TouchableOpacity, { style: [{ backgroundColor: saveIsReady ? colors_1.colors.turquoise : 'rgba(234,237,251, 0.8)' }, styles.saveButton], disabled: !saveIsReady, onPress: () => {
+                    React.createElement(react_native_1.View, { style: styles.borderBottom })))) : (React.createElement(React.Fragment, null,
+                React.createElement(react_native_1.View, { style: styles.borderViewLeft },
+                    React.createElement(react_native_1.View, { style: styles.borderBottom })),
+                React.createElement(react_native_1.View, { style: { justifyContent: "center", alignItems: "stretch", width: thirdSize, flexDirection: "row" } },
+                    React.createElement(react_native_1.TouchableOpacity, { style: { marginHorizontal: 10 }, onPress: this.props.resetPass },
+                        React.createElement(react_native_1.Image, { source: require('./design/lost.png'), style: { height: 40, width: 40 } }))),
+                React.createElement(react_native_1.View, { style: styles.borderViewRight },
+                    React.createElement(react_native_1.View, { style: styles.borderBottom })))))) : (React.createElement(React.Fragment, null, saveIsReady ? (React.createElement(react_native_1.TouchableOpacity, { style: [{ backgroundColor: saveIsReady ? colors_1.colors.turquoise : 'rgba(234,237,251, 0.8)' }, styles.saveButton], disabled: !saveIsReady, onPress: () => {
                     this.endProcess(this.state.currentPassword);
                 } },
                 React.createElement(react_native_1.Text, { style: { color: saveIsReady ? colors_1.colors.white : colors_1.colors.dark, fontSize: 16, textAlign: "center", fontFamily: 'Comfortaa', } }, this.props.isReset ? 'Enter new passcode' : `${saveText}`))) : null))),

@@ -9,6 +9,7 @@ export declare type IProps = {
     isEnter?: boolean;
     isReset?: boolean;
     isRegister?: boolean;
+    isTouchable?: boolean;
     resetPass: () => void;
     changeAccount: () => any;
     buttonDeleteComponent: any;

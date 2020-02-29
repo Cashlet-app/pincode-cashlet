@@ -22,6 +22,7 @@ export type IProps = {
   isEnter?: boolean
   isReset?: boolean
   isRegister?: boolean
+  isTouchable?: boolean
   resetPass: () => void
   changeAccount: () => any
   buttonDeleteComponent: any
@@ -260,6 +261,7 @@ class PinCodeEnter extends React.PureComponent<IProps, IState> {
             : styles.container
         }>
         <PinCode
+          isTouchable={this.props.isTouchable || true}
           showTouchID={this.state.showTouchID}
           handleShowTouchID={this.handleShowTouchID}
           resetPass={this.props.resetPass}

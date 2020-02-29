@@ -31,6 +31,7 @@ export type IProps = {
   isReset?: boolean
   isRegister?: boolean
   triggerTouchID: () => void
+  isTouchable: boolean
   cancelTouchID?: boolean
   resetPass: () => void
   handleShowTouchID: () => void
@@ -838,31 +839,53 @@ class PinCode extends React.PureComponent<IProps, IState> {
               alignItems: "center",
               flexDirection: "row"
             }}>
-              <View style={styles.borderViewLeft}>
-                <View style={styles.borderBottom} />
-              </View>
+              {this.props.isTouchable ? (
+                <>
+                  <View style={styles.borderViewLeft}>
+                    <View style={styles.borderBottom} />
+                  </View>
 
-              <View style={{ justifyContent: "center", alignItems: "stretch", width: thirdSize, flexDirection: "row" }}>
-                <TouchableOpacity
-                  style={{ marginHorizontal: 10 }}
-                  onPress={this.props.resetPass}
-                >
-                  <Image source={require('./design/lost.png')} style={{ height: 40, width: 40 }} />
-                </TouchableOpacity>
-                <View style={styles.borderViewCenter}>
-                  <View style={styles.borderCenter} />
-                </View>
-                <TouchableOpacity style={{ marginHorizontal: 10 }} onPress={() => {
-                  // this.props.handleShowTouchID();
-                  this.props.triggerTouchID()
-                }}>
-                  <Image source={require('./design/fingerprint.png')} style={{ height: 40, width: 40 }} />
-                </TouchableOpacity>
-              </View>
+                  <View style={{ justifyContent: "center", alignItems: "stretch", width: thirdSize, flexDirection: "row" }}>
+                    <TouchableOpacity
+                      style={{ marginHorizontal: 10 }}
+                      onPress={this.props.resetPass}
+                    >
+                      <Image source={require('./design/lost.png')} style={{ height: 40, width: 40 }} />
+                    </TouchableOpacity>
+                    <View style={styles.borderViewCenter}>
+                      <View style={styles.borderCenter} />
+                    </View>
+                    <TouchableOpacity style={{ marginHorizontal: 10 }} onPress={() => {
+                      // this.props.handleShowTouchID();
+                      this.props.triggerTouchID()
+                    }}>
+                      <Image source={require('./design/fingerprint.png')} style={{ height: 40, width: 40 }} />
+                    </TouchableOpacity>
+                  </View>
 
-              <View style={styles.borderViewRight}>
-                <View style={styles.borderBottom} />
-              </View>
+                  <View style={styles.borderViewRight}>
+                    <View style={styles.borderBottom} />
+                  </View>
+                </>
+              ) : (
+                  <>
+                    <View style={styles.borderViewLeft}>
+                      <View style={styles.borderBottom} />
+                    </View>
+
+                    <View style={{ justifyContent: "center", alignItems: "stretch", width: thirdSize, flexDirection: "row" }}>
+                      <TouchableOpacity
+                        style={{ marginHorizontal: 10 }}
+                        onPress={this.props.resetPass}
+                      >
+                        <Image source={require('./design/lost.png')} style={{ height: 40, width: 40 }} />
+                      </TouchableOpacity>
+                    </View>
+                    <View style={styles.borderViewRight}>
+                      <View style={styles.borderBottom} />
+                    </View>
+                  </>
+                )}
             </View>
 
           ) : (

@@ -8,6 +8,7 @@ export declare type IProps = {
     isReset?: boolean;
     isRegister?: boolean;
     triggerTouchID: () => void;
+    isTouchable: boolean;
     cancelTouchID?: boolean;
     resetPass: () => void;
     handleShowTouchID: () => void;
