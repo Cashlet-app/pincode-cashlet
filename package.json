@@ -17,14 +17,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TODOITLTD/pincode-cashlet.git"
+    "url": "git+https://github.com/Cashlet-app/pincode-cashlet.git"
   },
   "author": "Jeremy Farnault",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/TODOITLTD/pincode-cashlet/issues"
+    "url": "https://github.com/Cashlet-app/pincode-cashlet/issues"
   },
-  "homepage": "https://github.com/TODOITLTD/pincode-cashlet#readme",
+  "homepage": "https://github.com/Cashlet-app/pincode-cashlet#readme",
   "devDependencies": {
     "@types/d3-ease": "^1.0.7",
     "@types/lodash": "^4.14.104",
