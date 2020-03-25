@@ -17,6 +17,7 @@ import {
 import Icon from 'react-native-vector-icons/MaterialIcons'
 
 const thirdSize = Dimensions.get("window").width / 3 + 20
+const { height, width } = Dimensions.get("window");
 
 export type IProps = {
   timeToLock: number
@@ -107,7 +108,7 @@ class ApplicationLocked extends React.PureComponent<IProps, IState> {
         style={styles.button}>
         <Text
           style={styles.closeButtonText}>
-          {"Quit"}
+          {"Exit the app"}
         </Text>
       </TouchableOpacity>
     )
@@ -178,7 +179,7 @@ class ApplicationLocked extends React.PureComponent<IProps, IState> {
                 <View>
                   <Text
                     style={styles.text}>
-                    {`To protect your information, access has been locked for ${Math.ceil(
+                    {`3 incorrect passcodes have been entered. To protect your information, access has been locked for ${Math.ceil(
                       this.props.timeToLock / 1000 / 60
                     )} minutes.`}
                   </Text>
@@ -238,8 +239,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
     flexBasis: 0,
     left: 0,
-    height: '100%',
-    width: '100%',
+    height,
+    width,
     alignItems: 'center',
     flex: 1,
     justifyContent: 'center'
@@ -252,6 +253,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Comfortaa-light'
   },
   viewTextLock: {
+    marginTop: 2 * grid.unit,
     justifyContent: 'center',
     alignItems: 'center',
     paddingLeft: grid.unit * 3,
@@ -286,25 +288,27 @@ const styles = StyleSheet.create({
     marginBottom: grid.unit * 4
   },
   viewCloseButton: {
-    alignItems: 'center',
-    opacity: grid.mediumOpacity,
+    alignItems: 'flex-end',
     justifyContent: 'center',
-    marginTop: grid.unit * 2
+    marginTop: grid.unit * 2,
+    flex: 1,
   },
   button: {
-    borderRadius: grid.border,
-    borderWidth: 2,
-    borderColor: "rgb(75,94,127)",
-    paddingLeft: grid.unit * 2,
-    paddingRight: grid.unit * 2,
-    paddingBottom: grid.unit,
-    paddingTop: grid.unit
+    display: 'flex',
+    height: 48,
+    marginLeft: 2 * grid.unit,
+    marginRight: 2 * grid.unit,
+    borderRadius: 24,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'stretch',
+    backgroundColor: '#01e576',
   },
   closeButtonText: {
     fontWeight: 'bold',
     fontFamily: 'Comfortaa',
-    color: "#4B5E7F",
-    fontSize: 14
+    color: "#fff",
+    fontSize: 16
   },
   borderViewRight: {
     flex: 1,

@@ -172,7 +172,7 @@ class PINCode extends React.PureComponent<IProps, IState> {
         styleViewIcon={this.props.styleLockScreenViewIcon}
         styleViewTextLock={this.props.styleLockScreenViewTextLock}
         styleViewTimer={this.props.styleLockScreenViewTimer}
-        textButton={this.props.textButtonLockedPage || "Quit"}
+        textButton={this.props.textButtonLockedPage || "Exit the app"}
         textDescription={this.props.textDescriptionLockedPage || undefined}
         textSubDescription={this.props.textSubDescriptionLockedPage || undefined}
         textTitle={this.props.textTitleLockedPage || undefined}

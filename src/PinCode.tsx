@@ -235,6 +235,8 @@ class PinCode extends React.PureComponent<IProps, IState> {
   }
 
   renderButtonNumber = (text: string) => {
+    const bigButton = +text % 2 === 0 && +text !== 0;
+    const defaultStyle = bigButton ? [styles.buttonCircle, styles.bigButtonCircle] : styles.buttonCircle;
     const disabled =
       (this.state.password.length === this.props.passwordLength ||
         this.state.showError) &&
@@ -256,7 +258,7 @@ class PinCode extends React.PureComponent<IProps, IState> {
             style={[
               this.props.styleButtonCircle
                 ? this.props.styleButtonCircle
-                : styles.buttonCircle,
+                : defaultStyle,
               {
                 backgroundColor: this.props.colorCircleButtons
                   ? this.props.colorCircleButtons
@@ -366,6 +368,7 @@ class PinCode extends React.PureComponent<IProps, IState> {
           const lengthSup =
             ((password.length >= val + 1 && !changeScreen) || showError) &&
             !attemptFailed
+
           return (
             <Animate
               key={val}
@@ -378,8 +381,8 @@ class PinCode extends React.PureComponent<IProps, IState> {
                 color: this.props.colorPassword
                   ? this.props.colorPassword
                   : colors.turquoise,
-                marginRight: 10,
-                marginLeft: 10,
+                marginRight: 5,
+                marginLeft: 5,
                 x: 0,
                 y: 0
               }}
@@ -406,13 +409,13 @@ class PinCode extends React.PureComponent<IProps, IState> {
                 ],
                 marginRight: [
                   lengthSup
-                    ? 10 - (this._circleSizeFull - this._circleSizeEmpty) / 2
-                    : 10
+                    ? 5 - (this._circleSizeFull - this._circleSizeEmpty) / 2
+                    : 5
                 ],
                 marginLeft: [
                   lengthSup
-                    ? 10 - (this._circleSizeFull - this._circleSizeEmpty) / 2
-                    : 10
+                    ? 5 - (this._circleSizeFull - this._circleSizeEmpty) / 2
+                    : 5
                 ],
                 y: [moveData.y],
                 timing: { duration: 200, ease: easeLinear }
@@ -426,7 +429,9 @@ class PinCode extends React.PureComponent<IProps, IState> {
                 borderRadius,
                 marginRight,
                 marginLeft
-              }: any) => (
+              }: any) => {
+                const backgroundColor = this.state.password[val] ? color : 'transparent';
+                return (
                   <View style={styles.viewCircles}>
                     {((!this.state.isPincodeVisible ||
                       (this.state.isPincodeVisible && !lengthSup)) && (
@@ -441,7 +446,7 @@ class PinCode extends React.PureComponent<IProps, IState> {
                             marginRight: marginRight,
                             borderColor: !this.state.isPincodeVisible ? color : "#C6C9DD",
                             borderWidth: 2,
-                            backgroundColor: !this.state.isPincodeVisible ? color : "transparent"
+                            backgroundColor: !this.state.isPincodeVisible ? backgroundColor : "transparent"
                           }, this.props.stylePinCodeCircle]}
                         />
                       )) || (
@@ -465,7 +470,7 @@ class PinCode extends React.PureComponent<IProps, IState> {
                         </View>
                       )}
                   </View>
-                )}
+                )}}
             </Animate>
           )
         })}
@@ -938,8 +943,9 @@ let styles = StyleSheet.create({
     height: grid.unit * 4.5
   },
   colButtonCircle: {
-    marginLeft: grid.unit / 2,
-    marginRight: grid.unit / 2,
+    marginLeft: 10,
+    marginRight: 10,
+    justifyContent: 'center',
     alignItems: 'center',
     width: grid.unit * 3.5,
     height: grid.unit * 3,
@@ -957,18 +963,25 @@ let styles = StyleSheet.create({
     flexDirection: 'column'
   },
   text: {
-    fontSize: grid.unit * 1.5,
-    fontWeight: '200',
+    fontSize: 24,
+    fontFamily: 'Comfortaa-light',
+    color: '#4B5E7F',
   },
   buttonCircle: {
     alignItems: 'center',
     justifyContent: 'center',
-    width: grid.unit * 3.5,
-    height: grid.unit * 3.5,
+    width: 50,
+    height: 50,
     backgroundColor: 'rgb(242, 245, 251)',
-    borderRadius: grid.unit * 2,
+    borderRadius: 25,
     borderWidth: 4,
-    borderColor: 'rgba(234,237,251, 0.8)'
+    borderColor: '#DDDFED',
+    paddingBottom: 3,
+  },
+  bigButtonCircle: {
+    width: 70,
+    height: 70,
+    borderRadius: 35,
   },
   textTitle: {
     fontSize: 24,
