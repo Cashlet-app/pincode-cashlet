@@ -174,7 +174,7 @@ const styles = react_native_1.StyleSheet.create({
         height: 48,
         marginLeft: 2 * grid_1.grid.unit,
         marginRight: 2 * grid_1.grid.unit,
-        marginBottom: 2 * grid_1.grid.unit,
+        marginBottom: 4 * grid_1.grid.unit,
         borderRadius: 24,
         justifyContent: 'center',
         alignItems: 'center',
