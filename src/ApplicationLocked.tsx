@@ -298,6 +298,7 @@ const styles = StyleSheet.create({
     height: 48,
     marginLeft: 2 * grid.unit,
     marginRight: 2 * grid.unit,
+    marginBottom: 2 * grid.unit,
     borderRadius: 24,
     justifyContent: 'center',
     alignItems: 'center',
