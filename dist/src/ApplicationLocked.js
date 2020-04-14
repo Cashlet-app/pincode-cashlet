@@ -10,8 +10,8 @@ const React = require("react");
 const Animate_1 = require("react-move/Animate");
 const react_native_1 = require("react-native");
 const MaterialIcons_1 = require("react-native-vector-icons/MaterialIcons");
-const thirdSize = react_native_1.Dimensions.get("window").width / 3 + 20;
-const { height, width } = react_native_1.Dimensions.get("window");
+const thirdSize = react_native_1.Dimensions.get('window').width / 3 + 20;
+const { height, width } = react_native_1.Dimensions.get('window');
 class ApplicationLocked extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -24,14 +24,14 @@ class ApplicationLocked extends React.PureComponent {
                         throw 'Quit';
                     }
                 }, style: styles.button },
-                React.createElement(react_native_1.Text, { style: styles.closeButtonText }, "Exit the app")));
+                React.createElement(react_native_1.Text, { style: styles.closeButtonText }, 'Exit the app')));
         };
         this.renderTimer = (minutes, seconds) => {
             return (React.createElement(react_native_1.View, { style: styles.viewTimer },
                 React.createElement(react_native_1.Text, { style: styles.textTimer }, `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`)));
         };
         this.renderTitle = () => {
-            return (React.createElement(react_native_1.Text, { style: styles.title }, 'Maximum attempts \nreached'));
+            return React.createElement(react_native_1.Text, { style: styles.title }, 'Maximum attempts \nreached');
         };
         this.renderIcon = () => {
             return (React.createElement(react_native_1.View, { style: styles.viewIcon },
@@ -51,10 +51,10 @@ class ApplicationLocked extends React.PureComponent {
                     this.renderIcon(),
                     React.createElement(react_native_1.View, { style: {
                             justifyContent: 'center',
-                            alignItems: "center",
-                            flexDirection: "row",
+                            alignItems: 'center',
+                            flexDirection: 'row',
                             marginBottom: 20,
-                            flex: 1,
+                            flex: 1
                         } },
                         React.createElement(react_native_1.View, null,
                             React.createElement(react_native_1.Text, { style: styles.text }, `3 incorrect passcodes have been entered. To protect your information, access has been locked for ${Math.ceil(this.props.timeToLock / 1000 / 60)} minutes.`))),
@@ -102,9 +102,7 @@ class ApplicationLocked extends React.PureComponent {
         this.isUnmounted = true;
     }
     render() {
-        return (React.createElement(react_native_1.View, { style: this.props.styleMainContainer
-                ? this.props.styleMainContainer
-                : styles.container }, this.renderErrorLocked()));
+        return (React.createElement(react_native_1.View, { style: this.props.styleMainContainer ? this.props.styleMainContainer : styles.container }, this.renderErrorLocked()));
     }
 }
 exports.default = ApplicationLocked;
@@ -123,7 +121,7 @@ const styles = react_native_1.StyleSheet.create({
     },
     text: {
         fontSize: grid_1.grid.unit,
-        color: "#4B5E7F",
+        color: '#4B5E7F',
         lineHeight: grid_1.grid.unit * grid_1.grid.lineHeight,
         textAlign: 'center',
         fontFamily: 'Comfortaa-light'
@@ -139,12 +137,12 @@ const styles = react_native_1.StyleSheet.create({
     textTimer: {
         fontFamily: 'Comfortaa-light',
         fontSize: 48,
-        color: "#4B5E7F"
+        color: '#4B5E7F'
     },
     title: {
         fontSize: 24,
         color: colors_1.colors.base,
-        textAlign: "center",
+        textAlign: 'center',
         fontFamily: 'Comfortaa-light',
         marginBottom: 20
     },
@@ -167,7 +165,7 @@ const styles = react_native_1.StyleSheet.create({
         alignItems: 'flex-end',
         justifyContent: 'center',
         marginTop: grid_1.grid.unit * 2,
-        flex: 1,
+        flex: 1
     },
     button: {
         display: 'flex',
@@ -179,31 +177,30 @@ const styles = react_native_1.StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         alignSelf: 'stretch',
-        backgroundColor: '#01e576',
+        backgroundColor: '#01e576'
     },
     closeButtonText: {
-        fontWeight: 'bold',
-        fontFamily: 'Comfortaa',
-        color: "#fff",
+        fontFamily: 'Comfortaa-bold',
+        color: '#fff',
         fontSize: 16
     },
     borderViewRight: {
         flex: 1,
         justifyContent: 'center',
         alignContent: 'center',
-        alignItems: "flex-end",
+        alignItems: 'flex-end',
         marginHorizontal: 10
     },
     borderViewLeft: {
         flex: 1,
         justifyContent: 'center',
         alignContent: 'center',
-        alignItems: "flex-start",
+        alignItems: 'flex-start',
         marginHorizontal: 10
     },
     borderBottom: {
         backgroundColor: '#ccc',
         height: 2,
-        width: 10,
-    },
+        width: 10
+    }
 });
