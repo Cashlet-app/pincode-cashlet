@@ -448,8 +448,16 @@ class PinCode extends React.PureComponent {
                         width: thirdSize,
                         flexDirection: 'row',
                     } },
-                    React.createElement(react_native_1.TouchableOpacity, { style: { marginHorizontal: 10 }, onPress: this.props.resetPass },
-                        React.createElement(react_native_1.Image, { source: require('./design/lost.png'), style: { height: 40, width: 40 } })),
+                    React.createElement(react_native_1.TouchableOpacity, { style: { marginHorizontal: 10 }, onPress: this.props.resetPass }, this.props.resetTitle
+                        ? React.createElement(react_native_1.Text, { style: {
+                                color: colors_1.colors.grey,
+                                fontSize: 14,
+                                textAlign: 'center',
+                                fontFamily: 'Comfortaa',
+                            } },
+                            " ",
+                            this.props.resetTitle)
+                        : React.createElement(react_native_1.Image, { source: require('./design/lost.png'), style: { height: 40, width: 40 } })),
                     React.createElement(react_native_1.View, { style: styles.borderViewCenter },
                         React.createElement(react_native_1.View, { style: styles.borderCenter })),
                     React.createElement(react_native_1.TouchableOpacity, { style: { marginHorizontal: 10 }, onPress: () => {
@@ -467,8 +475,16 @@ class PinCode extends React.PureComponent {
                         width: thirdSize,
                         flexDirection: 'row',
                     } },
-                    React.createElement(react_native_1.TouchableOpacity, { style: { marginHorizontal: 10 }, onPress: this.props.resetPass },
-                        React.createElement(react_native_1.Image, { source: require('./design/lost.png'), style: { height: 40, width: 40 } }))),
+                    React.createElement(react_native_1.TouchableOpacity, { style: { marginHorizontal: 10 }, onPress: this.props.resetPass }, this.props.resetTitle
+                        ? React.createElement(react_native_1.Text, { style: {
+                                color: colors_1.colors.grey,
+                                fontSize: 14,
+                                textAlign: 'center',
+                                fontFamily: 'Comfortaa',
+                            } },
+                            " ",
+                            this.props.resetTitle)
+                        : React.createElement(react_native_1.Image, { source: require('./design/lost.png'), style: { height: 40, width: 40 } }))),
                 React.createElement(react_native_1.View, { style: styles.borderViewRight },
                     React.createElement(react_native_1.View, { style: styles.borderBottom })))))) : (React.createElement(React.Fragment, null, saveIsReady ? (React.createElement(react_native_1.TouchableOpacity, { style: [
                     { backgroundColor: saveIsReady ? colors_1.colors.turquoise : 'rgba(234,237,251, 0.8)' },
