@@ -70,6 +70,7 @@ export type IProps = {
   titleConfirmFailed?: string
   titleValidationFailed?: string
   validationRegex?: RegExp
+  resetTitle?: string;
 }
 
 export type IState = {
@@ -192,6 +193,7 @@ class PinCodeChoose extends React.PureComponent<IProps, IState> {
               this.props.titleValidationFailed || 'PIN code unsafe'
             }
             validationRegex={this.props.validationRegex}
+            resetTitle={this.props.resetTitle}
           />
         )}
         {this.state.status === PinStatus.confirm && (
@@ -265,6 +267,7 @@ class PinCodeChoose extends React.PureComponent<IProps, IState> {
             styleTextSubtitle={this.props.styleTextSubtitle}
             styleTextTitle={this.props.styleTextTitle}
             styleViewTitle={this.props.styleViewTitle}
+            resetTitle={this.props.resetTitle}
           />
         )}
       </View>

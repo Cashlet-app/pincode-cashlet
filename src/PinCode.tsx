@@ -92,6 +92,7 @@ export type IProps = {
   titleConfirmFailed?: string;
   titleValidationFailed?: string;
   validationRegex?: RegExp;
+  resetTitle?: string;
 };
 
 export type IState = {
@@ -796,10 +797,20 @@ class PinCode extends React.PureComponent<IProps, IState> {
                       style={{ marginHorizontal: 10 }}
                       onPress={this.props.resetPass}
                     >
-                      <Image
+                      {this.props.resetTitle
+                        ? <Text
+                          style={{
+                            color: colors.grey,
+                            fontSize: 14,
+                            textAlign: 'center',
+                            fontFamily: 'Comfortaa',
+                          }}
+                        > {this.props.resetTitle}
+                        </Text>
+                        :<Image
                         source={require('./design/lost.png')}
                         style={{ height: 40, width: 40 }}
-                      />
+                      />}
                     </TouchableOpacity>
                     <View style={styles.borderViewCenter}>
                       <View style={styles.borderCenter} />
@@ -840,10 +851,20 @@ class PinCode extends React.PureComponent<IProps, IState> {
                       style={{ marginHorizontal: 10 }}
                       onPress={this.props.resetPass}
                     >
-                      <Image
-                        source={require('./design/lost.png')}
-                        style={{ height: 40, width: 40 }}
-                      />
+                    {this.props.resetTitle
+                      ? <Text
+                        style={{
+                          color: colors.grey,
+                          fontSize: 14,
+                          textAlign: 'center',
+                          fontFamily: 'Comfortaa',
+                        }}
+                      > {this.props.resetTitle}
+                      </Text>
+                      :<Image
+                      source={require('./design/lost.png')}
+                      style={{ height: 40, width: 40 }}
+                    />}
                     </TouchableOpacity>
                   </View>
                   <View style={styles.borderViewRight}>

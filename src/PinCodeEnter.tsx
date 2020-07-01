@@ -92,6 +92,7 @@ export type IProps = {
   touchIDDisabled: boolean
   touchIDSentence: string
   touchIDTitle?: string
+  resetTitle?: string;
 }
 
 export type IState = {
@@ -334,6 +335,7 @@ class PinCodeEnter extends React.PureComponent<IProps, IState> {
           titleConfirmFailed={
             this.props.titleConfirmFailed || 'Your entries did not match'
           }
+          resetTitle={this.props.resetTitle}
         />
       </View>
     )
