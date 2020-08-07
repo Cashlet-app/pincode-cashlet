@@ -66,6 +66,7 @@ export declare type IProps = {
     titleConfirmFailed?: string;
     titleValidationFailed?: string;
     validationRegex?: RegExp;
+    resetTitle?: string;
 };
 export declare type IState = {
     status: PinStatus;

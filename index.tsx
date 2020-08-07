@@ -115,6 +115,7 @@ export type IProps = {
   touchIDSentence?: string
   touchIDTitle?: string
   validationRegex?: RegExp
+  resetTitle?: string;
 }
 
 export type IState = {
@@ -250,6 +251,7 @@ class PINCode extends React.PureComponent<IProps, IState> {
             isEnter={this.props.isEnter}
             isReset={this.props.isReset}
             isRegister={this.props.isRegister}
+            resetTitle={this.props.resetTitle}
           />}
         {status === PinStatus.enter &&
           <PinCodeEnter
@@ -326,6 +328,7 @@ class PINCode extends React.PureComponent<IProps, IState> {
             isEnter={this.props.isEnter}
             isReset={this.props.isReset}
             isRegister={this.props.isRegister}
+            resetTitle={this.props.resetTitle}
           />}
         {(pinStatus === PinResultStatus.locked ||
           this.state.internalPinStatus === PinResultStatus.locked ||
