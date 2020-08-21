@@ -136,8 +136,8 @@ class PinCode extends React.PureComponent<IProps, IState> {
       saveIsReady: false,
       currentPassword: '',
     };
-    this._circleSizeEmpty = this.props.styleCircleSizeEmpty || 4;
-    this._circleSizeFull = this.props.styleCircleSizeFull || (this.props.pinCodeVisible ? 4 : 4);
+    this._circleSizeEmpty = this.props.styleCircleSizeEmpty || 6;
+    this._circleSizeFull = this.props.styleCircleSizeFull || (this.props.pinCodeVisible ? 6 : 6);
   }
 
   componentDidMount() {
@@ -361,8 +361,8 @@ class PinCode extends React.PureComponent<IProps, IState> {
                 width: this._circleSizeEmpty,
                 borderRadius: this._circleSizeEmpty / 2,
                 color: this.props.colorPassword ? this.props.colorPassword : colors.turquoise,
-                marginRight: 5,
-                marginLeft: 5,
+                marginRight: 10,
+                marginLeft: 10,
                 x: 0,
                 y: 0,
               }}
@@ -394,6 +394,7 @@ class PinCode extends React.PureComponent<IProps, IState> {
                 marginLeft,
               }: any) => {
                 const backgroundColor = this.state.password[val] ? color : 'transparent';
+
                 return (
                   <View style={styles.viewCircles}>
                     {((!this.state.isPincodeVisible ||
@@ -408,8 +409,8 @@ class PinCode extends React.PureComponent<IProps, IState> {
                             borderRadius: !this.state.isPincodeVisible
                               ? borderRadius * 2.5
                               : borderRadius * 2.5,
-                            marginLeft: marginLeft,
-                            marginRight: marginRight,
+                            marginLeft: 10,
+                            marginRight: 10,
                             borderColor: !this.state.isPincodeVisible ? color : '#C6C9DD',
                             borderWidth: 2,
                             backgroundColor: !this.state.isPincodeVisible
@@ -424,8 +425,8 @@ class PinCode extends React.PureComponent<IProps, IState> {
                         style={{
                           left: x,
                           opacity: opacity,
-                          marginLeft: marginLeft,
-                          marginRight: marginRight,
+                          marginLeft: 10,
+                          marginRight: 10,
                         }}
                       >
                         <Text
@@ -450,6 +451,8 @@ class PinCode extends React.PureComponent<IProps, IState> {
   };
 
   renderButtonDelete = (opacity: number) => {
+    opacity = opacity > 0.5 ? opacity - 0.3 : opacity - 0.2;
+
     return (
       <TouchableHighlight
         disabled={this.state.password.length === 0}
@@ -1019,8 +1022,8 @@ let styles = StyleSheet.create({
     alignItems: 'center',
   },
   deleteButton: {
-    height: 48,
-    width: 48,
+    height: 45,
+    width: 45,
   },
   textDeleteButton: {
     fontWeight: '200',
