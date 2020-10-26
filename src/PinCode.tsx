@@ -792,12 +792,12 @@ class PinCode extends React.PureComponent<IProps, IState> {
                     style={{
                       justifyContent: 'center',
                       alignItems: 'stretch',
-                      width: thirdSize,
+                      width: Dimensions.get('window').width / 2 + 20,
                       flexDirection: 'row',
                     }}
                   >
                     <TouchableOpacity
-                      style={{ marginHorizontal: 10 }}
+                      style={{ margin: 10 }}
                       onPress={this.props.resetPass}
                     >
                       {this.props.resetTitle

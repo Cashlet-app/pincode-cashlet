@@ -446,10 +446,10 @@ class PinCode extends React.PureComponent {
                 React.createElement(react_native_1.View, { style: {
                         justifyContent: 'center',
                         alignItems: 'stretch',
-                        width: thirdSize,
+                        width: react_native_1.Dimensions.get('window').width / 2 + 20,
                         flexDirection: 'row',
                     } },
-                    React.createElement(react_native_1.TouchableOpacity, { style: { marginHorizontal: 10 }, onPress: this.props.resetPass }, this.props.resetTitle
+                    React.createElement(react_native_1.TouchableOpacity, { style: { margin: 10 }, onPress: this.props.resetPass }, this.props.resetTitle
                         ? React.createElement(react_native_1.Text, { style: {
                                 color: colors_1.colors.grey,
                                 fontSize: 14,
