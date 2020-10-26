@@ -792,7 +792,7 @@ class PinCode extends React.PureComponent<IProps, IState> {
                     style={{
                       justifyContent: 'center',
                       alignItems: 'stretch',
-                      width: thirdSize,
+                      width: Dimensions.get('window').width / 2 + 20,
                       flexDirection: 'row',
                     }}
                   >
