@@ -797,7 +797,7 @@ class PinCode extends React.PureComponent<IProps, IState> {
                     }}
                   >
                     <TouchableOpacity
-                      style={{ margin: 10 }}
+                      style={{ padding: 10 }}
                       onPress={this.props.resetPass}
                     >
                       {this.props.resetTitle
@@ -851,7 +851,7 @@ class PinCode extends React.PureComponent<IProps, IState> {
                     }}
                   >
                     <TouchableOpacity
-                      style={{ marginHorizontal: 10 }}
+                      style={{ padding: 10 }}
                       onPress={this.props.resetPass}
                     >
                     {this.props.resetTitle
