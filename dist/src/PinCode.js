@@ -87,9 +87,10 @@ class PinCode extends React.PureComponent {
         };
         this.renderButtonNumber = (text) => {
             const bigButton = +text % 2 === 0 && +text !== 0;
-            const defaultStyle = bigButton
-                ? [styles.buttonCircle, styles.bigButtonCircle]
-                : styles.buttonCircle;
+            // const defaultStyle = bigButton
+            //   ? [styles.buttonCircle, styles.bigButtonCircle]
+            //   : styles.buttonCircle;
+            const defaultStyle = styles.buttonCircle;
             const disabled = (this.state.password.length === this.props.passwordLength || this.state.showError) &&
                 !this.state.attemptFailed;
             return (React.createElement(Animate_1.default, { show: true, start: {
@@ -329,6 +330,8 @@ class PinCode extends React.PureComponent {
         const saveText = this.props.isRegister ? 'Create passcode' : 'Confirm passcode';
         return (React.createElement(react_native_1.View, { style: this.props.styleContainer ? this.props.styleContainer : styles.container },
             this.props.showTouchID && !this.props.cancelTouchID ? this.renderTouchID() : null,
+            React.createElement(react_native_1.View, { style: styles.viewLogo },
+                React.createElement(react_native_1.Image, { source: require('./design/logo.png'), style: styles.logo })),
             React.createElement(Animate_1.default, { show: true, start: {
                     opacity: 0,
                     colorTitle: this.props.styleColorTitle ? this.props.styleColorTitle : colors_1.colors.greyTitle,
@@ -408,7 +411,10 @@ class PinCode extends React.PureComponent {
                         : this.renderButtonNumber(i.toString())));
                 })),
                 React.createElement(react_native_easy_grid_1.Row, { style: this.props.styleRowButtons ? this.props.styleRowButtons : styles.row },
-                    React.createElement(react_native_easy_grid_1.Col, { style: this.props.styleEmptyColumn ? this.props.styleEmptyColumn : styles.colEmpty }, this.props.emptyColumnComponent || null),
+                    React.createElement(react_native_easy_grid_1.Col, { style: this.props.styleColumnButtons
+                            ? this.props.styleColumnButtons
+                            : styles.colButtonCircle }, (this.props.isEnter && this.props.isTouchable) &&
+                        React.createElement(react_native_1.TouchableHighlight, { style: this.props.styleColumnDeleteButton ? this.props.styleColumnDeleteButton : styles.colIcon, onPress: () => this.props.triggerTouchID() }, !this.props.iconButtonDeleteDisabled && (React.createElement(react_native_1.Image, { source: require('./design/fingerprint.png'), style: { height: 50, width: 50 } })))),
                     React.createElement(react_native_easy_grid_1.Col, { style: this.props.styleColumnButtons
                             ? this.props.styleColumnButtons
                             : styles.colButtonCircle }, this.props.buttonNumberComponent
@@ -440,54 +446,24 @@ class PinCode extends React.PureComponent {
                     justifyContent: 'center',
                     alignItems: 'center',
                     flexDirection: 'row',
-                } }, this.props.isTouchable ? (React.createElement(React.Fragment, null,
-                React.createElement(react_native_1.View, { style: styles.borderViewLeft },
-                    React.createElement(react_native_1.View, { style: styles.borderBottom })),
-                React.createElement(react_native_1.View, { style: {
-                        justifyContent: 'center',
-                        alignItems: 'stretch',
-                        width: react_native_1.Dimensions.get('window').width / 2 + 20,
-                        flexDirection: 'row',
-                    } },
-                    React.createElement(react_native_1.TouchableOpacity, { style: { padding: 10 }, onPress: this.props.resetPass }, this.props.resetTitle
-                        ? React.createElement(react_native_1.Text, { style: {
-                                color: colors_1.colors.grey,
-                                fontSize: 14,
-                                textAlign: 'center',
-                                fontFamily: 'Comfortaa',
-                            } },
-                            " ",
-                            this.props.resetTitle)
-                        : React.createElement(react_native_1.Image, { source: require('./design/lost.png'), style: { height: 40, width: 40 } })),
-                    React.createElement(react_native_1.View, { style: styles.borderViewCenter },
-                        React.createElement(react_native_1.View, { style: styles.borderCenter })),
-                    React.createElement(react_native_1.TouchableOpacity, { style: { marginHorizontal: 10 }, onPress: () => {
-                            // this.props.handleShowTouchID();
-                            this.props.triggerTouchID();
+                } },
+                React.createElement(React.Fragment, null,
+                    React.createElement(react_native_1.View, { style: {
+                            justifyContent: 'center',
+                            alignItems: 'stretch',
+                            width: thirdSize,
+                            flexDirection: 'row',
                         } },
-                        React.createElement(react_native_1.Image, { source: require('./design/fingerprint.png'), style: { height: 40, width: 40 } }))),
-                React.createElement(react_native_1.View, { style: styles.borderViewRight },
-                    React.createElement(react_native_1.View, { style: styles.borderBottom })))) : (React.createElement(React.Fragment, null,
-                React.createElement(react_native_1.View, { style: styles.borderViewLeft },
-                    React.createElement(react_native_1.View, { style: styles.borderBottom })),
-                React.createElement(react_native_1.View, { style: {
-                        justifyContent: 'center',
-                        alignItems: 'stretch',
-                        width: thirdSize,
-                        flexDirection: 'row',
-                    } },
-                    React.createElement(react_native_1.TouchableOpacity, { style: { padding: 10 }, onPress: this.props.resetPass }, this.props.resetTitle
-                        ? React.createElement(react_native_1.Text, { style: {
-                                color: colors_1.colors.grey,
-                                fontSize: 14,
-                                textAlign: 'center',
-                                fontFamily: 'Comfortaa',
-                            } },
-                            " ",
-                            this.props.resetTitle)
-                        : React.createElement(react_native_1.Image, { source: require('./design/lost.png'), style: { height: 40, width: 40 } }))),
-                React.createElement(react_native_1.View, { style: styles.borderViewRight },
-                    React.createElement(react_native_1.View, { style: styles.borderBottom })))))) : (React.createElement(React.Fragment, null, saveIsReady ? (React.createElement(react_native_1.TouchableOpacity, { style: [
+                        React.createElement(react_native_1.TouchableOpacity, { style: { padding: 10 }, onPress: this.props.resetPass }, this.props.resetTitle
+                            ? React.createElement(react_native_1.Text, { style: {
+                                    color: colors_1.colors.grey,
+                                    fontSize: 14,
+                                    textAlign: 'center',
+                                    fontFamily: 'Comfortaa',
+                                } },
+                                " ",
+                                this.props.resetTitle)
+                            : React.createElement(react_native_1.Image, { source: require('./design/lost.png'), style: { height: 40, width: 40 } })))))) : (React.createElement(React.Fragment, null, saveIsReady ? (React.createElement(react_native_1.TouchableOpacity, { style: [
                     { backgroundColor: saveIsReady ? colors_1.colors.turquoise : 'rgba(234,237,251, 0.8)' },
                     styles.saveButton,
                 ], disabled: !saveIsReady, onPress: () => {
@@ -517,30 +493,38 @@ let styles = react_native_1.StyleSheet.create({
         alignItems: 'center',
         width: '100%',
     },
+    viewLogo: {
+        marginTop: 20,
+        flex: 1,
+        justifyContent: 'center',
+    },
+    logo: {
+        width: 132,
+        height: 30,
+    },
     viewTitle: {
-        marginTop: 10,
         flexDirection: 'column',
-        justifyContent: 'flex-end',
+        justifyContent: 'center',
         alignItems: 'center',
         flex: 2,
     },
     row: {
         alignItems: 'center',
-        height: grid_1.grid.unit * 4.5,
+        height: grid_1.grid.unit * 5.5,
     },
     colButtonCircle: {
-        marginLeft: 10,
-        marginRight: 10,
+        marginLeft: 9,
+        marginRight: 9,
         justifyContent: 'center',
         alignItems: 'center',
-        width: grid_1.grid.unit * 3.5,
-        height: grid_1.grid.unit * 3,
+        width: grid_1.grid.unit * 5,
+        height: grid_1.grid.unit * 5,
     },
     colEmpty: {
-        marginLeft: grid_1.grid.unit / 2,
-        marginRight: grid_1.grid.unit / 2,
-        width: grid_1.grid.unit * 3.5,
-        height: grid_1.grid.unit * 3,
+        marginLeft: 9,
+        marginRight: 9,
+        width: grid_1.grid.unit * 5,
+        height: grid_1.grid.unit * 5,
     },
     colIcon: {
         alignSelf: 'center',
@@ -556,13 +540,11 @@ let styles = react_native_1.StyleSheet.create({
     buttonCircle: {
         alignItems: 'center',
         justifyContent: 'center',
-        width: 50,
-        height: 50,
+        width: 68,
+        height: 68,
         backgroundColor: 'rgb(242, 245, 251)',
-        borderRadius: 25,
-        borderWidth: 4,
-        borderColor: '#DDDFED',
-        paddingBottom: 3,
+        borderRadius: 34,
+        elevation: 5,
     },
     bigButtonCircle: {
         width: 70,
@@ -577,7 +559,6 @@ let styles = react_native_1.StyleSheet.create({
         fontFamily: 'Comfortaa',
     },
     titleBox: {
-        marginVertical: 20,
         marginHorizontal: grid_1.grid.unit * 2.5,
     },
     textSubtitle: {
@@ -586,7 +567,7 @@ let styles = react_native_1.StyleSheet.create({
         textAlign: 'center',
     },
     flexCirclePassword: {
-        flex: 2,
+        flex: 1,
         justifyContent: 'center',
         alignItems: 'stretch',
         flexDirection: 'row',
@@ -611,7 +592,9 @@ let styles = react_native_1.StyleSheet.create({
     },
     grid: {
         width: '100%',
-        flex: 7,
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex: 8,
     },
     visibleIcon: {
         height: 32,

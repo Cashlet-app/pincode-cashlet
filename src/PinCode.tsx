@@ -226,12 +226,16 @@ class PinCode extends React.PureComponent<IProps, IState> {
 
   renderButtonNumber = (text: string) => {
     const bigButton = +text % 2 === 0 && +text !== 0;
-    const defaultStyle = bigButton
-      ? [styles.buttonCircle, styles.bigButtonCircle]
-      : styles.buttonCircle;
+    // const defaultStyle = bigButton
+    //   ? [styles.buttonCircle, styles.bigButtonCircle]
+    //   : styles.buttonCircle;
+
+    const defaultStyle = styles.buttonCircle;
+
     const disabled =
       (this.state.password.length === this.props.passwordLength || this.state.showError) &&
       !this.state.attemptFailed;
+
     return (
       <Animate
         show={true}
@@ -577,6 +581,10 @@ class PinCode extends React.PureComponent<IProps, IState> {
     return (
       <View style={this.props.styleContainer ? this.props.styleContainer : styles.container}>
         {this.props.showTouchID && !this.props.cancelTouchID ? this.renderTouchID() : null}
+        <View style={styles.viewLogo}>
+          <Image source={require('./design/logo.png')} style={styles.logo} />
+        </View>
+
         <Animate
           show={true}
           start={{
@@ -721,10 +729,29 @@ class PinCode extends React.PureComponent<IProps, IState> {
           </Row>
           <Row style={this.props.styleRowButtons ? this.props.styleRowButtons : styles.row}>
             <Col
-              style={this.props.styleEmptyColumn ? this.props.styleEmptyColumn : styles.colEmpty}
+              style={
+                this.props.styleColumnButtons
+                  ? this.props.styleColumnButtons
+                  : styles.colButtonCircle
+              }
             >
-              {this.props.emptyColumnComponent || null}
+              {(this.props.isEnter && this.props.isTouchable) &&
+                <TouchableHighlight
+                  style={
+                    this.props.styleColumnDeleteButton ? this.props.styleColumnDeleteButton : styles.colIcon
+                  }
+                  onPress={() => this.props.triggerTouchID()}
+                >
+                  {!this.props.iconButtonDeleteDisabled && (
+                    <Image
+                      source={require('./design/fingerprint.png')}
+                      style={{ height: 50, width: 50 }}
+                    />
+                  )}
+                </TouchableHighlight>
+              }
             </Col>
+
             <Col
               style={
                 this.props.styleColumnButtons
@@ -736,6 +763,13 @@ class PinCode extends React.PureComponent<IProps, IState> {
                 ? this.props.buttonNumberComponent('0', this.onPressButtonNumber)
                 : this.renderButtonNumber('0')}
             </Col>
+
+            {/* <Col
+              style={this.props.styleEmptyColumn ? this.props.styleEmptyColumn : styles.colEmpty}
+            >
+              {this.props.emptyColumnComponent || null}
+            </Col> */}
+            
             <Col
               style={
                 this.props.styleColumnButtons
@@ -782,99 +816,36 @@ class PinCode extends React.PureComponent<IProps, IState> {
                 flexDirection: 'row',
               }}
             >
-              {this.props.isTouchable ? (
-                <>
-                  <View style={styles.borderViewLeft}>
-                    <View style={styles.borderBottom} />
-                  </View>
-
-                  <View
-                    style={{
-                      justifyContent: 'center',
-                      alignItems: 'stretch',
-                      width: Dimensions.get('window').width / 2 + 20,
-                      flexDirection: 'row',
-                    }}
+              <>
+                <View
+                  style={{
+                    justifyContent: 'center',
+                    alignItems: 'stretch',
+                    width: thirdSize,
+                    flexDirection: 'row',
+                  }}
+                >
+                  <TouchableOpacity
+                    style={{ padding: 10 }}
+                    onPress={this.props.resetPass}
                   >
-                    <TouchableOpacity
-                      style={{ padding: 10 }}
-                      onPress={this.props.resetPass}
-                    >
-                      {this.props.resetTitle
-                        ? <Text
-                          style={{
-                            color: colors.grey,
-                            fontSize: 14,
-                            textAlign: 'center',
-                            fontFamily: 'Comfortaa',
-                          }}
-                        > {this.props.resetTitle}
-                        </Text>
-                        :<Image
-                        source={require('./design/lost.png')}
-                        style={{ height: 40, width: 40 }}
-                      />}
-                    </TouchableOpacity>
-                    <View style={styles.borderViewCenter}>
-                      <View style={styles.borderCenter} />
-                    </View>
-                    <TouchableOpacity
-                      style={{ marginHorizontal: 10 }}
-                      onPress={() => {
-                        // this.props.handleShowTouchID();
-                        this.props.triggerTouchID();
+                  {this.props.resetTitle
+                    ? <Text
+                      style={{
+                        color: colors.grey,
+                        fontSize: 14,
+                        textAlign: 'center',
+                        fontFamily: 'Comfortaa',
                       }}
-                    >
-                      <Image
-                        source={require('./design/fingerprint.png')}
-                        style={{ height: 40, width: 40 }}
-                      />
-                    </TouchableOpacity>
-                  </View>
-
-                  <View style={styles.borderViewRight}>
-                    <View style={styles.borderBottom} />
-                  </View>
-                </>
-              ) : (
-                <>
-                  <View style={styles.borderViewLeft}>
-                    <View style={styles.borderBottom} />
-                  </View>
-
-                  <View
-                    style={{
-                      justifyContent: 'center',
-                      alignItems: 'stretch',
-                      width: thirdSize,
-                      flexDirection: 'row',
-                    }}
-                  >
-                    <TouchableOpacity
-                      style={{ padding: 10 }}
-                      onPress={this.props.resetPass}
-                    >
-                    {this.props.resetTitle
-                      ? <Text
-                        style={{
-                          color: colors.grey,
-                          fontSize: 14,
-                          textAlign: 'center',
-                          fontFamily: 'Comfortaa',
-                        }}
-                      > {this.props.resetTitle}
-                      </Text>
-                      :<Image
-                      source={require('./design/lost.png')}
-                      style={{ height: 40, width: 40 }}
-                    />}
-                    </TouchableOpacity>
-                  </View>
-                  <View style={styles.borderViewRight}>
-                    <View style={styles.borderBottom} />
-                  </View>
-                </>
-              )}
+                    > {this.props.resetTitle}
+                    </Text>
+                    :<Image
+                    source={require('./design/lost.png')}
+                    style={{ height: 40, width: 40 }}
+                  />}
+                  </TouchableOpacity>
+                </View>
+              </>
             </View>
           ) : (
             <>
@@ -937,30 +908,38 @@ let styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
   },
+  viewLogo: {
+    marginTop: 20,
+    flex: 1,
+    justifyContent: 'center',
+  },
+  logo: {
+    width: 132,
+    height: 30,
+  },
   viewTitle: {
-    marginTop: 10,
     flexDirection: 'column',
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
     alignItems: 'center',
     flex: 2,
   },
   row: {
     alignItems: 'center',
-    height: grid.unit * 4.5,
+    height: grid.unit * 5.5,
   },
   colButtonCircle: {
-    marginLeft: 10,
-    marginRight: 10,
+    marginLeft: 9,
+    marginRight: 9,
     justifyContent: 'center',
     alignItems: 'center',
-    width: grid.unit * 3.5,
-    height: grid.unit * 3,
+    width: grid.unit * 5,
+    height: grid.unit * 5,
   },
   colEmpty: {
-    marginLeft: grid.unit / 2,
-    marginRight: grid.unit / 2,
-    width: grid.unit * 3.5,
-    height: grid.unit * 3,
+    marginLeft: 9,
+    marginRight: 9,
+    width: grid.unit * 5,
+    height: grid.unit * 5,
   },
   colIcon: {
     alignSelf: 'center',
@@ -976,13 +955,11 @@ let styles = StyleSheet.create({
   buttonCircle: {
     alignItems: 'center',
     justifyContent: 'center',
-    width: 50,
-    height: 50,
+    width: 68,
+    height: 68,
     backgroundColor: 'rgb(242, 245, 251)',
-    borderRadius: 25,
-    borderWidth: 4,
-    borderColor: '#DDDFED',
-    paddingBottom: 3,
+    borderRadius: 34,
+    elevation: 5,
   },
   bigButtonCircle: {
     width: 70,
@@ -997,7 +974,6 @@ let styles = StyleSheet.create({
     fontFamily: 'Comfortaa',
   },
   titleBox: {
-    marginVertical: 20,
     marginHorizontal: grid.unit * 2.5,
   },
   textSubtitle: {
@@ -1006,7 +982,7 @@ let styles = StyleSheet.create({
     textAlign: 'center',
   },
   flexCirclePassword: {
-    flex: 2,
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'stretch',
     flexDirection: 'row',
@@ -1031,7 +1007,9 @@ let styles = StyleSheet.create({
   },
   grid: {
     width: '100%',
-    flex: 7,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 8,
   },
   visibleIcon: {
     height: 32,
