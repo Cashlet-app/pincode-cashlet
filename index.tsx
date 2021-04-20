@@ -317,7 +317,7 @@ class PINCode extends React.PureComponent<IProps, IState> {
             textCancelButtonTouchID={this.props.textCancelButtonTouchID}
             textPasswordVisibleFamily={this.props.textPasswordVisibleFamily}
             textPasswordVisibleSize={this.props.textPasswordVisibleSize}
-            title={this.props.titleEnter || "Enter your passcode \nto login to Cashlet"}
+            title={this.props.titleEnter || "Enter your passcode \nto login"}
             titleAttemptFailed={this.props.titleAttemptFailed}
             titleComponent={this.props.titleComponent}
             titleConfirmFailed={this.props.titleConfirmFailed}

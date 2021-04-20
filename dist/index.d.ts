@@ -1,4 +1,4 @@
-/// <reference path="../src/types.d.ts" />
+/// <reference types="pincode-cashlet/src/types" />
 import { PinResultStatus } from "./src/utils";
 import * as React from "react";
 import { StyleProp, ViewStyle, TextStyle } from "react-native";
